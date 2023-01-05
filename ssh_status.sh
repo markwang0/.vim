@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/sh
+
 SESSION_TYPE=local
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
   SESSION_TYPE=remote/ssh
