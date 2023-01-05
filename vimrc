@@ -99,8 +99,8 @@ nmap <leader>/ :BLines<cr>
 """""""""""""""""""""""
 
 " FZF
-let fzfpath = system('which fzf')
-set rtp+=fzfpath
+let fzfpath = trim(system('which fzf'))
+set rtp+=trim(fzfpath)
 
 " vim-airline
 let g:airline_powerline_fonts=1
