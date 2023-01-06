@@ -1,4 +1,11 @@
+# Requirements
+1. *nix operating system
+2. `vim >= v8.0` to install plugins
+3. `vim >= v9.0` for some settings
+---
+
 # Installation (overwrites `~/.vim`)
+
 ```sh
 $ cd $HOME
 $ git clone --recursive https://github.com/markwang0/.vim.git
