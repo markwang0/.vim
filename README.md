@@ -2,6 +2,8 @@
 1. *nix operating system
 2. `vim >= v8.0` to install plugins
 3. `vim >= v9.0` for some settings
+4. [`fzf`](https://github.com/junegunn/fzf)
+5. [`ripgrep`](https://github.com/BurntSushi/ripgrep)
 ---
 
 # Installation (overwrites `~/.vim`)
