@@ -26,7 +26,7 @@ $ git submodule add [git url]
 ### Update all plugins
 ```sh
 $ cd ~/.vim
-$ git submodule foreach git pull origin master
+$ git submodule update --recursive --remote
 ```
 
 ### Generate help docs
