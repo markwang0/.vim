@@ -100,7 +100,7 @@ nmap <leader>/ :BLines<cr>
 
 " FZF
 let fzfpath = trim(system('which fzf'))
-set rtp+=trim(fzfpath)
+set rtp+=fzfpath
 
 " vim-airline
 let g:airline_powerline_fonts=1
@@ -112,6 +112,11 @@ let g:airline_theme='base16_gruvbox_dark_hard'
 let g:airline#extensions#tabline#enabled=1
 " show just the filename
 let g:airline#extensions#tabline#fnamemod=':t'
+" define airline dictionary before custom symbols
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.colnr=' :'
 
 " NERDTree
 " let NERDTreeShowHidden=1
@@ -125,7 +130,7 @@ nnoremap <silent> # #:1Searchlight<cr>
 
 " vim-devicons
 " disable devicons in ssh sessions
-let ssh_status = system('. ~/.vim/ssh_status.sh')
+let ssh_status = system('source $HOME/.vim/ssh_status.sh')
 if trim(ssh_status) != 'local'
     let g:webdevicons_enable = 0
 endif
