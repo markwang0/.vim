@@ -13,10 +13,6 @@ set wildoptions=pum,fuzzy
 set backspace=indent,eol,start
 set timeoutlen=1000
 set ttimeoutlen=0
-" don't autoinsert comment leaders
-set formatoptions-=c
-set formatoptions-=r
-set formatoptions-=o
 
 " searching
 set ignorecase
@@ -59,7 +55,6 @@ hi Normal guibg=NONE ctermbg=NONE
 """""""""""""""""""""""
 
 let mapleader = ","
-nmap <leader>a ggVG
 nmap <leader>t :term<cr>
 nmap <leader>n :NERDTreeToggle<cr>
 " toggle search highlight
@@ -82,6 +77,9 @@ nmap <leader>P "*P
 
 " custom functions
 noremap <leader>w :call TrimWhitespace()<cr>
+
+" ale
+nmap <leader>a :ALEFix<cr>
 
 " FZF
 nmap <leader>l :Buffers<cr>
@@ -114,7 +112,7 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
 " define airline dictionary before custom symbols
 if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
 let g:airline_symbols.colnr=' :'
 
@@ -134,6 +132,16 @@ let ssh_status = system('source $HOME/.vim/ssh_status.sh')
 if trim(ssh_status) != 'local'
     let g:webdevicons_enable = 0
 endif
+
+" ale (Asynchronous Lint Engine)
+let g:ale_fixers = {
+            \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+            \   'python': ['black']
+            \}
+          " \   'python': ['isort', 'black']
+          " \   'javascript': ['eslint'],
+" set to 1 to lint on save
+let g:ale_fix_on_save = 0
 
 
 """""""""""""""""""""""
