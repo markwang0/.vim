@@ -139,16 +139,6 @@ if trim(ssh_status) != 'local'
     let g:webdevicons_enable = 0
 endif
 
-" ale (Asynchronous Lint Engine)
-let g:ale_fixers = {
-            \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-            \   'python': ['black']
-            \}
-          " \   'python': ['isort', 'black']
-          " \   'javascript': ['eslint'],
-" set to 1 to lint on save
-let g:ale_fix_on_save = 0
-
 
 """""""""""""""""""""""
 " custom functions
