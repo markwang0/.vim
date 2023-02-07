@@ -30,8 +30,16 @@ set si "Smart indent
 filetype plugin on
 filetype indent on
 
+" disable backups and swaps
+set nobackup
+set nowritebackup
+set noswapfile
+
 " :W to write as root
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
+
+" redraw after silent command
+command! -nargs=1 Silent execute ':silent !'.<q-args> | execute ':redraw!'
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -56,6 +64,7 @@ hi Normal guibg=NONE ctermbg=NONE
 
 let mapleader = ","
 nmap <leader>t :term<cr>
+nmap <leader>a :Silent black % &> /dev/null<cr>
 nmap <leader>n :NERDTreeToggle<cr>
 " toggle search highlight
 nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
@@ -77,9 +86,6 @@ nmap <leader>P "*P
 
 " custom functions
 noremap <leader>w :call TrimWhitespace()<cr>
-
-" ale
-nmap <leader>a :ALEFix<cr>
 
 " FZF
 nmap <leader>l :Buffers<cr>
