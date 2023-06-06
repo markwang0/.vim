@@ -56,7 +56,8 @@ au FocusGained,BufEnter * checktime
 " appearance
 """""""""""""""""""""""
 
-colo gruvbox
+" colo gruvbox
+colo default
 set background=dark
 set termwinsize=10x0
 set splitbelow
@@ -115,7 +116,8 @@ set rtp+=fzfpath
 " vim-airline
 let g:airline_powerline_fonts=1
 " let g:airline_theme='hybridline'
-let g:airline_theme='base16_gruvbox_dark_hard'
+" let g:airline_theme='base16_gruvbox_dark_hard'
+let g:airline_theme='onedark'
 " remove trailing whitepace indicator
 " let g:airline#extensions#whitespace#enabled=0
 " enable list of buffers
