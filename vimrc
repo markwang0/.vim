@@ -30,6 +30,12 @@ set si "Smart indent
 filetype plugin on
 filetype indent on
 
+" reopen to last position
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
+
 " disable backups and swaps
 set nobackup
 set nowritebackup
